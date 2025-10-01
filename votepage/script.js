@@ -26,6 +26,7 @@ async function updatePoll() {
 
 async function castVote(name) {
     if (!canVote()) {
+        window.location.href = "voted.html"
         return;
     } 
 
@@ -39,6 +40,7 @@ async function castVote(name) {
         }
     }).then(data => {
         localStorage.setItem("prev_poll_name", current_poll_name);
+        window.location.href = "voted.html"
     });
 }
 
