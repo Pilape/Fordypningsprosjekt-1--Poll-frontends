@@ -20,20 +20,30 @@ async function get_json(){
             votes.push(cell.votes);
         });
 
+
+        //pain
         const ctx = document.getElementById('poll').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Votes',
+                    label: data.name,
                     data: votes,
                     backgroundColor: ['red','blue'] // can generate dynamically too
                 }]
             },
-            options: { responsive: true,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 animation: false,
-            }
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        suggestedMax: 10
+                    }
+                }
+            },
         });
 
 
